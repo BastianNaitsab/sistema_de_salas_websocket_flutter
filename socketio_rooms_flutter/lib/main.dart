@@ -126,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           Text("${room.name}"),
                           Text("${room.state}"),
                           Text("${room.dateStarted}"),
+                          const SizedBox(height: 20),
                           const Text("Usuarios en la sala:"),
                           for (var id in userIds)
                             Text(id), // Mostrar cada idUser

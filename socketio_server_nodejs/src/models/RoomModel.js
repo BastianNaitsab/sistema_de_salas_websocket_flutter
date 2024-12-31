@@ -24,9 +24,9 @@ class RoomModel {
         };
     }
 
-    // Convertir el objeto RoomModel a JSON (cadena de texto)
+    // Para enviar en websocket
     toJson() {
-        return JSON.stringify(this.toMap()); // Serializar el mapa a JSON
+        return JSON.stringify(this.toMap());
     }
 
     // Crear un RoomModel a partir de un mapa
@@ -43,9 +43,9 @@ class RoomModel {
         );
     }
 
-    // Crear un RoomModel a partir de JSON
+    // Para enviar en websocket
     static fromJson(source) {
-        return RoomModel.fromMap(JSON.parse(source)); // Deserializar el JSON
+        return RoomModel.fromMap(JSON.parse(source));
     }
 }
 

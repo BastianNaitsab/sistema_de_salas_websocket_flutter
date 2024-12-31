@@ -9,16 +9,18 @@ class UserModel {
         };
     }
 
+    // Para enviar en websocket
     toJson() {
-        return JSON.stringify(this.toMap()); // Serializar el mapa a JSON
+        return JSON.stringify(this.toMap());
     }
 
     static fromMap(map) {
         return new UserModel(map.idUser);
     }
 
+    // Para recibir en websocket
     static fromJson(source) {
-        return UserModel.fromMap(JSON.parse(source)); // Deserializar el JSON
+        return UserModel.fromMap(JSON.parse(source));
     }
 
 }
