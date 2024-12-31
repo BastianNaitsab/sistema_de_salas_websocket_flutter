@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:socketio_rooms_flutter/models/room_model.dart';
 import 'package:socketio_rooms_flutter/models/user_model.dart';
 
-import 'models/message.dart';
 import 'services/websocket_service.dart';
 
 void main() => runApp(const MyApp());
@@ -38,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    // esta direccion cambia si emulas en android, ios o web
     const String wsUrl = 'http://localhost:3000';
     // Conectar al WebSocket
     _webSocketService.connect(wsUrl);
@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     const InputDecoration(labelText: 'Enter your Username'),
               ),
             ),
+
             const SizedBox(height: 24),
 
             // Usar el StreamBuilder con los Streams del WebSocketService
@@ -83,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("${room.name}"),
+                                Text(room.name),
                                 Text("${room.dateCreation}"),
                                 Text(
                                     "${room.listUsers.length} of ${room.limitUsers}"),
@@ -123,8 +124,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("${room.name}"),
-                          Text("${room.state}"),
+                          Text(room.name),
+                          Text(room.state),
                           Text("${room.dateStarted}"),
                           const SizedBox(height: 20),
                           const Text("Usuarios en la sala:"),

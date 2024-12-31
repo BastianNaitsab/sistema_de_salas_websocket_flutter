@@ -47,6 +47,7 @@ class RoomModel {
     static fromJson(source) {
         return RoomModel.fromMap(JSON.parse(source));
     }
+
 }
 
 module.exports = RoomModel;
